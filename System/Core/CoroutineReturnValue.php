@@ -1,12 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: user
- * Date: 2017/10/20
- * Time: 16:28
- */
-
-namespace classes;
+namespace PHPTask\System\Core;
 
 /**
  * Class CoroutineReturnValue

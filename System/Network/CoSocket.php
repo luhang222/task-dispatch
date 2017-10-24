@@ -6,14 +6,21 @@
  * Time: 16:23
  */
 
-namespace classes;
+namespace PHPTask\System\NetWork;
 
-
+use PHPTask\System\Core\CoroutineReturnValue;
+use PHPTask\System\Core\SystemCall;
+/**
+ * Socket封装
+ * Class CoSocket
+ * @package classes
+ */
 class CoSocket {
 
     protected $socket;
 
     public function __construct($socket) {
+        if(!is_resource($socket)) throw new \Exception("invalid socket");
         $this->socket = $socket;
     }
 
@@ -34,6 +41,14 @@ class CoSocket {
 
     public function getName(){
         return stream_socket_get_name($this->socket,TRUE);
+    }
+
+    public function checkEof(){
+        return feof($this->socket);
+    }
+
+    public function checkResource(){
+        return is_resource($this->socket);
     }
 
     public function close() {

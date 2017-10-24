@@ -1,5 +1,5 @@
 <?php
-namespace classes;
+namespace PHPTask\System\Core;
 
 /**
 * 任务调度器
@@ -25,18 +25,12 @@ class Scheduler
 	public $task_queue;
 
     /**
-     * 已完成队列
-     */
-//    public $finished_queue;
-
-    /**
      * Scheduler constructor.
      */
 	function __construct()
 	{
 	    $this->max_task_id = 0;
         $this->task_queue = new \SplQueue();
-        $this->finished_queue = new \SplQueue();
 	}
 
     /**
@@ -85,7 +79,7 @@ class Scheduler
 	}
 
     /**
-     *  执行
+     *  运行
      */
 	public function run(){
 		while (!$this->task_queue->isEmpty()) {
@@ -102,7 +96,6 @@ class Scheduler
 			}
 		}
 	}
-
 }
 
 ?>

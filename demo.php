@@ -1,11 +1,11 @@
 <?php 
-require_once "classes/Task.php";
-require_once "classes/Scheduler.php";
-require_once "classes/SystemCall.php";
-require_once "classes/SocketScheduler.php";
-require_once "classes/CoSocket.php";
-require_once "classes/CoroutineReturnValue.php";
-require_once "classes/TcpServer.php";
+require_once "System/Task.php";
+require_once "System/Scheduler.php";
+require_once "System/SystemCall.php";
+require_once "System/SocketScheduler.php";
+require_once "System/CoSocket.php";
+require_once "System/CoroutineReturnValue.php";
+require_once "System/TcpServer.php";
 
 use classes\SocketScheduler;
 use classes\TcpServer;

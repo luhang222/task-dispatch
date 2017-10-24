@@ -1,18 +1,36 @@
 <?php
-namespace classes;
+namespace PHPTask\System\Core;
 
 /**
-* 任务类
+* Task Class
 */
 class Task
 {
-	protected $task_id; //ID
+    /**
+     * Task ID
+     * @var
+     */
+	protected $task_id;
 
-	public $gen; //生成器
+    /**
+     * Task Stacked Generator
+     * @var void
+     */
+	protected $gen;
 
-	protected $send_value; //接受值
+    /**
+     * Task Send Value
+     * @var
+     */
+	protected $send_value;
 
-	protected $before_first = true; //第一次进入
+
+    /**
+     * First Flag
+     * @var bool
+     */
+	protected $before_first = true;
+
 
     /**
      * Task constructor.
@@ -26,7 +44,7 @@ class Task
 	}
 
     /**
-     * 设置发送值
+     * Set Send Value
      * @param $send
      */
 	public function setSendValue($send){
@@ -34,17 +52,25 @@ class Task
 	}
 
     /**
-     * 获得ID
+     * Get ID
      * @return mixed
      */
 	public function getId(){
 		return $this->task_id;
 	}
 
+    /**
+     * Check finish status
+     * @return bool
+     */
 	public function isFinished(){
 		return !$this->gen->valid();
 	}
 
+    /**
+     * Run the task
+     * @return mixed
+     */
 	public function run(){
 		if($this->before_first){
 			$this->before_first = false;
@@ -57,7 +83,7 @@ class Task
 	}
 
     /**
-     * 协程堆栈
+     * return Stacked Generator
      * @param \Generator $gen
      */
     protected function stackedCoroutine(\Generator $gen) {

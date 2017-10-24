@@ -1,6 +1,7 @@
 <?php
-namespace classes;
+namespace PHPTask\System\NetWork;
 
+use PHPTask\System\Core\Scheduler;
 /**
  * Socket任务调度器
  */
@@ -90,9 +91,7 @@ class SocketScheduler extends Scheduler
             //中断等待下一次调用
             yield;
         }
-
     }
-
 }
 
 ?>
